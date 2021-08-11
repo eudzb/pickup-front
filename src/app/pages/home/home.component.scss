@@ -1,0 +1,37 @@
+.home-title,
+.home-subtitle {
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.home-title {
+  font-size: 2.5em;
+}
+
+.home-subtitle {
+  font-size: 1.5em;
+}
+
+.card-choice {
+  height: 300px;
+  width: 300px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+
+  img {
+    height: 160px;
+  }
+
+  span {
+    font-weight: 800;
+    letter-spacing: .8px;
+    font-size: 0.9em;
+  }
+}
+
+.card-choice:hover,
+.card-choice:focus-within {
+  transform: translateY(-15px);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+}
