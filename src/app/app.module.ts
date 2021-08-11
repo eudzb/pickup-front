@@ -5,6 +5,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {AppComponent} from './app.component';
 import {HomeComponent} from './pages/home/home.component';
 import {NavComponent} from './components/nav/nav.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -19,7 +20,8 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
