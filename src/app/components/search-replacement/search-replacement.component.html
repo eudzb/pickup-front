@@ -1,0 +1,83 @@
+<div class="modal-header p-4 border-bottom-0">
+  <h4 class="modal-title text-dark">Chercher un remplaçant</h4>
+  <button type="button" class="close border-0 bg-white" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-x text-secondary"
+         viewBox="0 0 16 16">
+      <path
+        d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+    </svg>
+  </button>
+</div>
+
+<div class="modal-body d-flex flex-column px-4">
+  <div class="mb-4 input-label position-relative">
+    <input id="town" type="text" [(ngModel)]="searchInput" [ngbTypeahead]="search"
+           (focus)="focus$.next($any($event).target.value)"
+           (click)="click$.next($any($event).target.value)"
+           #instance="ngbTypeahead">
+    <label for="town" class="text-muted"
+           [class.active-input]="searchInput || searchInput.trim() !== ''">Ville</label>
+  </div>
+
+  <div>
+    <span>Choix de la catégorie :</span>
+    <div class="d-flex align-items-center justify-content-center categories-list">
+      <span *ngFor="let category of allCategories"
+            class="category"
+            [class.active-category]="selectedCategory === category"
+            (click)="selectCategory(category)">{{category}}</span>
+    </div>
+
+    <div class="specific-categories row justify-content-center align-items-center"
+         *ngIf="selectedCategory === 'Gaming'">
+      <div *ngFor="let element of specificGamingCategories"
+           class="col-4 specific-category d-flex flex-column align-items-center justify-content-center shadow-sm"
+           [class.active-specific-category]="selectedSpecificCategory === element.label"
+           (click)="selectSpecificCategory(element.label)">
+        <img [src]="element.img">
+        <span class="text-muted mt-3">{{element.label}}</span>
+      </div>
+    </div>
+
+    <div class="specific-categories row justify-content-center align-items-center"
+         *ngIf="selectedCategory === 'Sport'">
+      <div *ngFor="let element of specificSportCategories"
+           class="col-4 specific-category d-flex flex-column align-items-center justify-content-center shadow-sm"
+           [class.active-specific-category]="selectedSpecificCategory === element.label"
+           (click)="selectSpecificCategory(element.label)">
+        <img [src]="element.img">
+        <span class="text-muted mt-3">{{element.label}}</span>
+      </div>
+    </div>
+
+    <div class="specific-categories row justify-content-center align-items-center"
+         *ngIf="selectedCategory === 'Musique'">
+      <div *ngFor="let element of specificMusicCategories"
+           class="col-4 specific-category d-flex flex-column align-items-center justify-content-center shadow-sm"
+           [class.active-specific-category]="selectedSpecificCategory === element.label"
+           (click)="selectSpecificCategory(element.label)">
+        <img [src]="element.img">
+        <span class="text-muted mt-3">{{element.label}}</span>
+      </div>
+    </div>
+
+    <div class="specific-categories row justify-content-center align-items-center"
+         *ngIf="selectedCategory === 'Aide à domicile'">
+      <div *ngFor="let element of specificHomeHelpCategories"
+           class="col-4 specific-category d-flex flex-column align-items-center justify-content-center shadow-sm"
+           [class.active-specific-category]="selectedSpecificCategory === element.label"
+           (click)="selectSpecificCategory(element.label)">
+        <img [src]="element.img">
+        <span class="text-muted mt-3">{{element.label}}</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="modal-footer p-4">
+  <button type="button"
+          class="btn btn-dark"
+          [disabled]="!searchInput || searchInput.trim() === '' || !selectedCategory || !selectedSpecificCategory"
+          (click)="onSubmit()">Valider</button>
+</div>

@@ -18,6 +18,8 @@
   border-radius: 16px;
   cursor: pointer;
   transition: 0.3s ease;
+  border: none;
+  outline: none;
 
   img {
     height: 160px;
@@ -33,5 +35,5 @@
 .card-choice:hover,
 .card-choice:focus-within {
   transform: translateY(-15px);
-  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
 }

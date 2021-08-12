@@ -1,0 +1,90 @@
+.input-label {
+  input {
+    padding: 12px 8px 8px;
+    border: none;
+    border-bottom: 1px solid black;
+    width: 100%;
+    outline: none;
+  }
+
+  label {
+    position: absolute;
+    left: 7px;
+    top: 16px;
+    cursor: auto;
+    transition: 0.2s ease;
+  }
+
+  input:focus + label,
+  .active-input {
+    font-size: 0.8em;
+    top: -11px;
+  }
+}
+
+:host ::ng-deep .dropdown-item.active, .dropdown-item:active {
+  background-color: var(--dark-color) !important;
+}
+
+.categories-list {
+  margin: 24px 16px;
+  gap: 16px;
+
+  .category {
+    padding: 8px;
+    border: 1px solid var(--dark-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: .9em;
+    background: white;
+    color: var(--dark-color);
+    transition: 0.2s ease;
+  }
+
+  .category:hover {
+    color: white;
+    background: rgba(0, 0, 0, .7);
+    border-color: transparent;
+  }
+
+  .active-category {
+    color: white;
+    background: var(--dark-color) !important;
+    border-color: var(--dark-color) !important;
+  }
+}
+
+.specific-categories {
+  margin: 3rem 16px;
+  gap: 16px;
+
+  .specific-category {
+    border-radius: 16px;
+    padding: 16px;
+    background: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border: 1px solid transparent;
+
+    img {
+      height: 40px;
+    }
+
+    span {
+      font-weight: 500;
+      font-size: .7em;
+    }
+  }
+
+  .specific-category:hover,
+  .active-specific-category {
+    transform: translateY(-5px);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+  }
+
+  .active-specific-category {
+    border: 1px solid rgba(0, 0, 0, .7);
+    transition: 0.3s ease;
+  }
+
+}

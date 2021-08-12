@@ -9,3 +9,18 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+:root {
+  --dark-color: #212529;
+}
+
+#ngb-live {
+  display: none;
+}
+
+.custom-modal .modal-content {
+  border: none !important;
+  border-radius: 16px !important;
+  background: white !important;
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+}
