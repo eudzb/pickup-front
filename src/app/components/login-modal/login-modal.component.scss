@@ -1,0 +1,32 @@
+.input-label {
+  input {
+    padding: 12px;
+    border: 1px solid black;
+    width: 100%;
+  }
+
+  input[readonly] {
+    cursor: text;
+    background-color: white;
+  }
+
+  label {
+    position: absolute;
+    left: 8px;
+    top: 12px;
+    padding: 0 8px;
+    cursor: auto;
+    background: white;
+    transition: 0.2s ease;
+  }
+
+  input:focus + label,
+  .active-input {
+    font-size: 0.8em;
+    top: -11px;
+  }
+}
+
+strong {
+  cursor: pointer;
+}

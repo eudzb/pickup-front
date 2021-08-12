@@ -1,0 +1,93 @@
+<div class="modal-header p-4 border-bottom-0 w-100">
+  <h4 class="modal-title text-dark mx-auto">{{loginState === 'signIn' ? 'Connexion' : 'Inscription'}}</h4>
+</div>
+
+<!-- SIGN IN -->
+
+<div class="modal-body d-flex flex-column px-4 justify-content-center align-items-center"
+     *ngIf="loginState === 'signIn'">
+  <div class="mb-4 input-label position-relative w-75">
+    <input onfocus="this.removeAttribute('readonly');"
+           readonly
+           id="emailSignIn"
+           type="email"
+           [(ngModel)]="emailSignIn"
+           class="form-control rounded"
+           autocomplete="nope">
+    <label for="emailSignIn"
+           class="text-muted"
+           [class.active-input]="!isEmpty(emailSignIn)">Email</label>
+  </div>
+  <div class="mb-4 input-label position-relative w-75">
+    <input onfocus="this.removeAttribute('readonly');"
+           readonly
+           id="passwordSignIn"
+           type="password"
+           [(ngModel)]="passwordSignIn"
+           class="form-control rounded"
+           autocomplete="nope">
+    <label for="passwordSignIn"
+           class="text-muted"
+           [class.active-input]="!isEmpty(passwordSignIn)">Mot de passe</label>
+  </div>
+
+  <button class="mt-4 mb-3 w-50 mx-auto btn btn-dark"
+          [disabled]="isEmpty(emailSignIn) || isEmpty(passwordSignIn)"
+          (click)="onSignIn()">Se connecter
+  </button>
+  <span class="mb-3 small text-muted mx-auto">Pas encore de compte ? <strong
+    (click)="goTo('signUp')" class="text-dark">S'inscrire</strong></span>
+</div>
+
+<!-- SIGN UP -->
+
+<div class="modal-body d-flex flex-column px-4 justify-content-center align-items-center"
+     *ngIf="loginState === 'signUp'">
+  <div class="mb-4 input-label position-relative w-75">
+    <input onfocus="this.removeAttribute('readonly');"
+           readonly
+           id="emailSignUp"
+           type="email"
+           [(ngModel)]="emailSignUp"
+           class="form-control rounded"
+           autocomplete="nope">
+    <label for="emailSignUp"
+           class="text-muted"
+           [class.active-input]="!isEmpty(emailSignUp)">Email</label>
+  </div>
+  <div class="mb-4 input-label position-relative w-75">
+    <input onfocus="this.removeAttribute('readonly');"
+           readonly
+           id="passwordSignUp"
+           type="password"
+           [(ngModel)]="passwordSignUp"
+           class="form-control rounded"
+           autocomplete="nope">
+    <label for="passwordSignUp"
+           class="text-muted"
+           [class.active-input]="!isEmpty(passwordSignUp)">Mot de passe</label>
+  </div>
+  <div class="mb-4 input-label position-relative w-75">
+    <input onfocus="this.removeAttribute('readonly');"
+           readonly
+           id="confirmPasswordSignUp"
+           type="password"
+           [(ngModel)]="confirmPasswordSignUp"
+           class="form-control rounded"
+           autocomplete="nope">
+    <label for="passwordSignIn"
+           class="text-muted"
+           [class.active-input]="!isEmpty(confirmPasswordSignUp)">Confirmation du mot de
+      passe</label>
+  </div>
+  <span *ngIf="errorMsg" class="small text-danger my-2">{{errorMsg}}</span>
+  <button class="mt-4 mb-3 w-50 mx-auto btn btn-dark"
+          [disabled]="isEmpty(emailSignUp) ||
+                      isEmpty(passwordSignUp) ||
+                      isEmpty(confirmPasswordSignUp)"
+          (click)="onSignUp()">
+    S'inscrire
+  </button>
+  <span class="mb-3 small text-muted mx-auto">Déjà inscrit ? <strong
+    (click)="goTo('signIn')" class="text-dark">Se connecter</strong></span>
+</div>

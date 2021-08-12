@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {LoginModalComponent} from '../login-modal/login-modal.component';
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService: NgbModal) {
+  }
 
   ngOnInit(): void {
   }
 
+  openLogin() {
+    const modalRef = this.modalService.open(LoginModalComponent, {
+      centered: true,
+      modalDialogClass: 'custom-modal'
+    });
+    modalRef.componentInstance.login = 'signIn';
+  }
+
+  openCreateAccount() {
+    const modalRef = this.modalService.open(LoginModalComponent, {
+      centered: true,
+      modalDialogClass: 'custom-modal'
+    });
+    modalRef.componentInstance.login = 'signUp';
+  }
 }

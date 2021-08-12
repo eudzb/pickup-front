@@ -1,0 +1,32 @@
+.login {
+  span {
+    cursor: pointer;
+    color: var(--dark-color);
+    position: relative;
+    transition: 0.3s ease;
+  }
+
+  span::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    border-bottom: 3px solid transparent;
+    top: 30px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: 0.3s ease;
+  }
+
+  span:hover:after {
+    content: '';
+    position: absolute;
+    width: 40%;
+    border-bottom: 3px solid var(--dark-color);
+    top: 30px;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+}
